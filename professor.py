@@ -22,7 +22,7 @@ def main():
                 print("EEE")
                 
         else:
-            print(f"{x} + {y} = {ans}")
+            print(q_str + str(ans))
 
     print(f"Score: {score}")
 
@@ -30,7 +30,7 @@ def main():
 def get_level():
     while True:
         try:
-            level = int(input("Level: "))
+            level = int(input("Level (1-3): "))
             if not level in [1, 2, 3]:
                 raise ValueError
         except ValueError:
@@ -65,6 +65,9 @@ def generate_integer(level):
 
 
 def generate_question(level, operation):
+    if not operation in ["+", "-", "x", "/"]:
+        raise ValueError
+    
     x = generate_integer(level)
 
     while True:
